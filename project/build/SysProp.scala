@@ -69,7 +69,7 @@ class SysProp(info: ProjectInfo) extends DefaultProject(info) {
 //    case v         => error("Unsupported Scala version " + v)
 //  }
 
-  val lib_maybe = "com.ckkloverdos" % "maybe_%s".format(buildScalaVersion)   % "0.1.0"     % "compile" withSources()
+  val lib_maybe = "com.ckkloverdos" % "maybe_%s".format(buildScalaVersion)   % "0.3.0"     % "compile" withSources()
 
   override def testOptions =
     super.testOptions ++
