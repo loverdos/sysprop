@@ -56,20 +56,12 @@ class SysProp(info: ProjectInfo) extends DefaultProject(info) {
         <developer>
           <id>loverdos</id>
           <name>Christos KK Loverdos</name>
+          <email>loverdos@gmail.com</email>
         </developer>
       </developers>;
 
-//  val lib_slf4j           = "org.slf4j"       % "slf4j-api"       % "1.6.1"        % "compile"  withSources()
-//  val lib_logback_simple  = "ch.qos.logback"  % "logback-classic" % "0.9.28"       % "test"     withSources()
-//  val lib_junit_interface = "com.novocode"    % "junit-interface" % "0.7"          % "test"
-//  val lib_scalatest       = "org.scalatest"   % "scalatest_2.9.0" % "1.4.1"        % "test"     withSources()
-//  val lib_maybe =  buildScalaVersion match {
-//    case "2.8.2"   => "com.ckkloverdos" % "maybe_2.8.2"   % "0.1.0"     % "compile" withSources()
-//    case "2.9.1"   => "com.ckkloverdos" % "maybe_2.9.1"   % "0.1.0"     % "compile" withSources()
-//    case v         => error("Unsupported Scala version " + v)
-//  }
-
-  val lib_maybe = "com.ckkloverdos" % "maybe_%s".format(buildScalaVersion)   % "0.3.0"     % "compile" withSources()
+  val lib_maybe     = "com.ckkloverdos" %% "maybe"     % "0.4.0-SNAPSHOT" % "compile" withSources()
+  val lib_converter = "com.ckkloverdos" %% "converter" % "0.4.0-SNAPSHOT" % "compile" withSources()
 
   override def testOptions =
     super.testOptions ++

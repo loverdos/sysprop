@@ -17,6 +17,7 @@
 package com.ckkloverdos.sys
 
 import collection.immutable.SortedSet
+import com.ckkloverdos.convert.Converters
 
 /**
  * Abstraction for jvm system properties.
@@ -92,4 +93,13 @@ object SysProp {
   )
 
   def apply(name: String): SysProp = new SysProp(name)
+
+  def isSysPropTrue(name: String)(implicit converters: Converters = Converters.DefaultConverters): Boolean = {
+    val maybeValue = for {
+      propValue    <- SysProp(name)
+      booleanValue <- converters.convertToBoolean(propValue)
+    } yield booleanValue
+
+    maybeValue.getOr(false)
+  }
 }

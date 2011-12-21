@@ -16,6 +16,8 @@
 
 package com.ckkloverdos.sys
 
+import com.ckkloverdos.convert.Converters
+
 /**
  * Abstraction for environment variables.
  * 
@@ -53,4 +55,15 @@ object SysEnv {
   lazy val LC_CTYPE = this("LC_CTYPE")
 
   def apply(name: String): SysEnv = new SysEnv(name)
+
+  def isSysEnvTrue(name: String)(implicit converters: Converters = Converters.DefaultConverters): Boolean = {
+    val maybeValue = for {
+      propValue    <- SysEnv(name)
+      booleanValue <- converters.convertToBoolean(propValue)
+    } yield {
+      booleanValue
+    }
+
+    maybeValue.getOr(false)
+  }
 }
