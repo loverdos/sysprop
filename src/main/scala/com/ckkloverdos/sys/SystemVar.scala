@@ -19,7 +19,7 @@ package com.ckkloverdos.sys
 import com.ckkloverdos.maybe.{Maybe}
 
 /**
- * Abstraction for system properties.
+ * Abstraction for system variables.
  *
  * @author Christos KK Loverdos <loverdos@gmail.com>.
  */
@@ -35,9 +35,9 @@ private[sys] abstract class SysVar[T <: SysVar[T]](valueMaker: (String) => Strin
 
   def isDefined: Boolean = value.isJust
 
-  def map[U](f: String => U): Maybe[U] = value.map(f)
+  def map[U](f: String => U): Maybe[U] = value map f
 
-  def flatMap[U](f: String => Maybe[U]): Maybe[U] = value.flatMap(f)
+  def flatMap[U](f: String => Maybe[U]): Maybe[U] = value flatMap f
 
   override def hashCode = name.##
 
