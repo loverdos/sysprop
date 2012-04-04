@@ -17,6 +17,7 @@
 package com.ckkloverdos.sys
 
 import com.ckkloverdos.convert.Converters
+import java.io.File
 
 /**
  * Abstraction for environment variables.
@@ -34,23 +35,31 @@ final class SysEnv(val name: String) extends SysVar[SysEnv](System.getenv(_)) {
 }
 
 object SysEnv {
-  lazy val PS1   = this("PS1")
-  lazy val PS2   = this("PS2")
+  lazy val PS1 = this("PS1")
+  lazy val PS2 = this("PS2")
 
-  lazy val SHELL   = this("SHELL")
-  lazy val TERM   = this("TERM")
+  lazy val SHELL = this("SHELL")
+  lazy val TERM = this("TERM")
 
-  lazy val PATH   = this("PATH")
-  lazy val MANPATH   = this("MANPATH")
+  lazy val PATH = this("PATH")
+
+  lazy val MANPATH = this("MANPATH")
 
   lazy val USER   = this("USER")
+
   lazy val HOME   = this("HOME")
+  lazy val HOME_FOLDER = TransformedVar.File(HOME)
 
   lazy val EDITOR = this("EDITOR")
 
   lazy val SCALA_HOME = this("SCALA_HOME")
+  lazy val SCALA_HOME_FOLDER = TransformedVar.File(SCALA_HOME)
+
   lazy val JAVA_HOME = this("JAVA_HOME")
+  lazy val JAVA_HOME_FOLDER = TransformedVar.File(JAVA_HOME)
+
   lazy val JDK_HOME = this("JDK_HOME")
+  lazy val JDK_HOME_FOLDER = TransformedVar.File(JDK_HOME)
 
   lazy val LC_CTYPE = this("LC_CTYPE")
 
