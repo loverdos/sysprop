@@ -79,6 +79,8 @@ object SysProp {
   lazy val JavaCompiler = this("java.compiler")
   lazy val JavaExtDirs  = this("java.ext.dirs")
 
+  lazy val FileEncoding = this("file.encoding")
+
   lazy val StandardsProps = SortedSet(
     JavaVersion, JavaVendor, JavaVendorURL, JavaHome,
     JavaVMSpecificationVersion, JavaVMSpecificationVendor, JavaVMSpecificationName,
@@ -89,7 +91,8 @@ object SysProp {
     JavaClassPath, JavaLibraryPath, JavaIOTmpDir,
     OsName, OsVersion, OsArch,
     LineSeparator, FileSeparator, PathSeparator,
-    JavaCompiler, JavaCompiler
+    JavaCompiler, JavaExtDirs,
+    FileEncoding
   )
 
   def apply(name: String): SysProp = new SysProp(name)
