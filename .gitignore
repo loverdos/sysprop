@@ -7,6 +7,6 @@ project/build/target/
 .DS_Store
 .project
 .classpath
-
+.gradle/
 deploy
 release
