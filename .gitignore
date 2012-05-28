@@ -10,3 +10,4 @@ project/build/target/
 .gradle/
 deploy
 release
+README.pdf
